@@ -6,6 +6,7 @@ def main():
 	blog = ('content/blog.html')
 	testimonials = ('content/testimonials.html')
 	index = ('content/index.html')
+	
 
 #combine top.html with bottom.htm ito base.html with {{content}}
 
@@ -19,6 +20,10 @@ def main():
 	# base_template = top_template + "{{content}}" + bottom_template
 	# #base_template = open('templates/base.html').read()
 	# open('templates/base.html', 'w+').write(base_template)
+
+
+	
+
 
 
 if __name__ == "__main__":
@@ -47,6 +52,7 @@ def listdic():
 		]
 
 
+
 	for page in pages:
 		template = open('templates/base.html').read()
 		filename = open(page['filename']).read()
@@ -60,11 +66,7 @@ listdic()
 def apply_template():
 
 
-	#create and combine index html 
-	template = open("templates/base.html").read()
-	index_content = open("content/index.html").read()
-	finished_index_page = template.replace("{{content}}", index_content)
-	open("docs/index.html", 'w+').write(finished_index_page)
+#TODO: Read in template, do string replacing, and return the result
 
 
 	# #create and combine index html 
@@ -73,10 +75,18 @@ def apply_template():
 	# finished_index_page = template.replace("{{content}}", index_content)
 	# open("docs/index.html", 'w+').write(finished_index_page)
 
+#create and combine index html 
+	template = open("templates/base.html").read()
+	index_content = open("content/index.html").read()
+	finished_index_page = template.replace("{{content}}", index_content)
+	open("docs/index.html", 'w+').write(finished_index_page)
+
+
 
 	return
 
 apply_template()
+
 
 
 
