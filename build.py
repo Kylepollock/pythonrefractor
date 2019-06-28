@@ -1,10 +1,25 @@
-#def main():
-#index
-top_template = open('templates/top.html').read()
-body = open('content/index.html').read()
-bottom_template = open('templates/bottom.html').read()
-index_html = top_template + body + bottom_template 
-open('docs/index.html', 'w+').write(index_html)
+print('this is the build')
+
+def main():
+	top = ('templates/top.html')
+	bottom = ('templates/bottom.html')
+	blog = ('content/blog.html')
+	testimonials = ('content/testimonials.html')
+
+#combie top.html with bottom.htm ito base.html with {{content}}
+	
+	top_template = open(top).read()
+	bottom_template = open(bottom).read()
+	base_template = top_template + "{{content}}" + bottom_template
+	open('template/base.html', 'w+').write(base_template)
+
+
+if __name__ == "__main__":
+  main()
+
+template = open('template/base.html').read() 
+
+
 
 
 '''pages = [ {
@@ -50,5 +65,5 @@ page = open('content/blog.html').read()
 blog = top_template + page + bottom_template
 open('docs/blog.html', 'w+').write(blog) 
 
-#if __name__ == "__main__":
-  #  main()
+
+
