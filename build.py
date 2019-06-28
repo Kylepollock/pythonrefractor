@@ -12,13 +12,13 @@ def main():
 	top_template = open(top).read()
 	bottom_template = open(bottom).read()
 	base_template = top_template + "{{content}}" + bottom_template
-	# open('template/base.html', 'w+').write(base_template)
+	open('templates/base.html', 'w+').write(base_template)
 
 
 if __name__ == "__main__":
   main()
 
-# template = open('template/base.html').read() 
+template = open('templates/base.html').read() 
 
 
 def listdic():
@@ -42,20 +42,25 @@ def listdic():
 
 
 	for page in pages:
-		# template = open('template/base.html').read()
+		template = open('templates/base.html').read()
 		filename = open(page['filename']).read()
-		# combined_file = template.replace("{{content}}",filename)
-		# open(page['output'],'w+').write(combined_file)
+		combined_file = template.replace("{{content}}",filename)
+		open(page['output'],'w+').write(combined_file)
 
 listdic()
 
+
+
+
+
+
 #create and combine index html 
-# index_content = open(index).read()
-# finished_index_page = template.replace("{{content}}", index_content)
-# open('docs.html', 'w+').write(finished_index_page)
+template = open(index).read()
+finished_index_page = template.replace("{{content}}", index_content)
+open('docs.html', 'w+').write(finished_index_page)
 
 
-##testimonial 
+#testimonial 
 # content = open('content/testimonials.html').read()
 # testimonials = top_template + content + bottom_template
 # open('docs/testimonials.html', 'w+').write(testimonials) 
