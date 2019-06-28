@@ -55,9 +55,10 @@ listdic()
 
 
 #create and combine index html 
-template = open(index).read()
+template = open("templates/base.html").read()
+index_content = open("content/index.html").read()
 finished_index_page = template.replace("{{content}}", index_content)
-open('docs.html', 'w+').write(finished_index_page)
+open("docs/index.html", 'w+').write(finished_index_page)
 
 
 #testimonial 
