@@ -12,6 +12,7 @@ def main():
 	top_template = open(top).read()
 	bottom_template = open(bottom).read()
 	base_template = top_template + "{{content}}" + bottom_template
+	#base_template = open('templates/base.html').read()
 	open('templates/base.html', 'w+').write(base_template)
 
 
@@ -51,15 +52,25 @@ listdic()
 
 
 
+def apply_template():
+
+
+	#create and combine index html 
+	template = open("templates/base.html").read()
+	index_content = open("content/index.html").read()
+	finished_index_page = template.replace("{{content}}", index_content)
+	open("docs/index.html", 'w+').write(finished_index_page)
+
+
+	return
+
+apply_template()
 
 
 
-#create and combine index html 
-template = open("templates/base.html").read()
-index_content = open("content/index.html").read()
-finished_index_page = template.replace("{{content}}", index_content)
-open("docs/index.html", 'w+').write(finished_index_page)
 
+
+#---------------------------------
 
 #testimonial 
 # content = open('content/testimonials.html').read()
@@ -67,6 +78,9 @@ open("docs/index.html", 'w+').write(finished_index_page)
 # open('docs/testimonials.html', 'w+').write(testimonials) 
 
 
+#blog
+# content = open('content/blog.html').read()
+# testimonials = top_template + content + bottom 
 
 # #blog 
 # page = open('content/blog.html').read()
