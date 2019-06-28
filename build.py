@@ -6,7 +6,7 @@ def main():
 	blog = ('content/blog.html')
 	testimonials = ('content/testimonials.html')
 	index = ('content/index.html')
-	
+
 
 #combine top.html with bottom.htm ito base.html with {{content}}
 
@@ -18,7 +18,7 @@ def main():
 	# top_template = open(top).read()
 	# bottom_template = open(bottom).read()
 	# base_template = top_template + "{{content}}" + bottom_template
-	# #base_template = open('templates/base.html').read()
+	#base_template = open('templates/base.html').read()
 	# open('templates/base.html', 'w+').write(base_template)
 
 
@@ -29,7 +29,7 @@ def main():
 if __name__ == "__main__":
   main()
 
-# template = open('templates/base.html').read() 
+#template = open('templates/base.html').read() 
 
 
 def listdic():
@@ -58,6 +58,10 @@ def listdic():
 		filename = open(page['filename']).read()
 		combined_file = template.replace("{{content}}",filename)
 		open(page['output'],'w+').write(combined_file)
+		# title1 = open(page['title']).read()
+		# title = template.replace("{{title}}",title1)
+		# open(page['output'],'w+').write(filename)
+		
 
 listdic()
 
